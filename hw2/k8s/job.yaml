@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mlops-hw2-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: mlops-hw2-server
+        image: toliaba/mlops-hw2-server:latest
+        command: ["echo", "Job completed!"]
+      restartPolicy: Never
+  backoffLimit: 4
+

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mlops-hw2-pod
+  labels:
+    app: mlops-hw2
+spec:
+  containers:
+  - name: mlops-hw2-server
+    image: toliaba/mlops-hw2-server:latest
+    ports:
+    - containerPort: 5000

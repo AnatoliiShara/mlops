@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mlops-hw2-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mlops-hw2
+  template:
+    metadata:
+      labels:
+        app: mlops-hw2
+    spec:
+      containers:
+      - name: mlops-hw2-server
+        image: toliaba/mlops-hw2-server:latest
+        ports:
+        - containerPort: 5000
