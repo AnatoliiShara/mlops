@@ -1,9 +1,18 @@
 import os
 import pandas as pd
 from openai import OpenAI
+from dotenv import load_dotenv
+
+# Завантажити змінні середовища з файлу .env
+load_dotenv()
+
+# Отримати API-ключ із змінної середовища
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise ValueError("OPENAI_API_KEY not set in .env file")
 
 # Налаштування API-ключа
-client = OpenAI(api_key="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")
+client = OpenAI(api_key=api_key)
 
 # Функція для генерації одного запису про книгу через ChatGPT
 def generate_book_entry():
