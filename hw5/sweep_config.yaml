@@ -1,0 +1,12 @@
+program: sweep_svd.py
+method: grid
+metric:
+  name: RMSE
+  goal: minimize
+parameters:
+  n_factors:
+    values: [10, 50, 100]
+  lr_all:
+    values: [0.001, 0.005, 0.01]
+  reg_all:
+    values: [0.01, 0.02, 0.05]

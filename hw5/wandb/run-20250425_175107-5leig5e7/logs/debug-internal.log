@@ -1,0 +1,16 @@
+{"time":"2025-04-25T17:51:07.932803712+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.10","symlink path":"/home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_175107-5leig5e7/logs/debug-core.log"}
+{"time":"2025-04-25T17:51:08.735692695+03:00","level":"INFO","msg":"created new stream","id":"5leig5e7"}
+{"time":"2025-04-25T17:51:08.735752461+03:00","level":"INFO","msg":"stream: started","id":"5leig5e7"}
+{"time":"2025-04-25T17:51:08.735903587+03:00","level":"INFO","msg":"sender: started","stream_id":"5leig5e7"}
+{"time":"2025-04-25T17:51:08.735880635+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"5leig5e7"}
+{"time":"2025-04-25T17:51:08.73600124+03:00","level":"INFO","msg":"handler: started","stream_id":"5leig5e7"}
+{"time":"2025-04-25T17:51:09.00655362+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-25T17:52:02.838635515+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-25T17:52:02.838804212+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-25T17:52:03.801509794+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading config.yaml","runtime_seconds":0.259134707,"progress":"648B/648B"}],"total_operations":1}}
+{"time":"2025-04-25T17:52:03.833757083+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-25T17:52:04.66413013+03:00","level":"INFO","msg":"stream: closing","id":"5leig5e7"}
+{"time":"2025-04-25T17:52:04.664158379+03:00","level":"INFO","msg":"handler: closed","stream_id":"5leig5e7"}
+{"time":"2025-04-25T17:52:04.664172714+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"5leig5e7"}
+{"time":"2025-04-25T17:52:04.664223294+03:00","level":"INFO","msg":"sender: closed","stream_id":"5leig5e7"}
+{"time":"2025-04-25T17:52:04.664260821+03:00","level":"INFO","msg":"stream: closed","id":"5leig5e7"}
