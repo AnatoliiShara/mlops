@@ -18,7 +18,19 @@ MODEL_DIR.mkdir(exist_ok=True)                   # створюємо models/, �
 
 def load_ratings(path: Path) -> pd.DataFrame:
     df = pd.read_csv(path)
+
+    # ↓ новий блок: агрегуємо дублікати середнім значенням
+    if df.duplicated(subset=["user_id", "book_id"]).any():
+        df = (
+            df.groupby(["user_id", "book_id"], as_index=False)["rating"]
+            .mean()
+            .round()                  # рейтинг залишається цілим
+            .astype(int)
+        )
+
+    df["rating"] = df["rating"].astype(float)    # як і раніше
     return df[["user_id", "book_id", "rating"]]
+
 
 def load_books(path: Path) -> pd.DataFrame:
     df = pd.read_csv(path)
