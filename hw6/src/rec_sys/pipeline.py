@@ -1,5 +1,4 @@
 # hw6/src/rec_sys/pipeline.py
-
 from surprise import SVD, Dataset, Reader, accuracy
 from surprise.model_selection import train_test_split
 import pandas as pd
@@ -9,28 +8,25 @@ import wandb
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from pathlib import Path
+import argparse
+import sys
 
 # ---------- DATA ----------
 BASE_DIR = Path(__file__).resolve().parents[2]   # hw6/
 DATA_DIR = BASE_DIR / "data"
 MODEL_DIR = BASE_DIR / "models"
-MODEL_DIR.mkdir(exist_ok=True)                   # створюємо models/, якщо нема
+MODEL_DIR.mkdir(exist_ok=True)
 
 def load_ratings(path: Path) -> pd.DataFrame:
     df = pd.read_csv(path)
-
-    # ↓ новий блок: агрегуємо дублікати середнім значенням
+    # агрегуємо дублікати (user_id, book_id)
     if df.duplicated(subset=["user_id", "book_id"]).any():
         df = (
             df.groupby(["user_id", "book_id"], as_index=False)["rating"]
-            .mean()
-            .round()                  # рейтинг залишається цілим
-            .astype(int)
+            .mean().round().astype(int)
         )
-
-    df["rating"] = df["rating"].astype(float)    # як і раніше
+    df["rating"] = df["rating"].astype(float)
     return df[["user_id", "book_id", "rating"]]
-
 
 def load_books(path: Path) -> pd.DataFrame:
     df = pd.read_csv(path)
@@ -58,16 +54,17 @@ def get_recommendation(books_df: pd.DataFrame,
     filtered = books_df[books_df["genre"] == genre]
     if filtered.empty:
         return None
-    filtered_tfidf = tfidf.transform(filtered["description"])
-    sims = cosine_similarity(tfidf.transform([description]),
-                             filtered_tfidf).flatten()
+    sims = cosine_similarity(
+        tfidf.transform([description]),
+        tfidf.transform(filtered["description"])
+    ).flatten()
     best_idx = filtered.index[np.argmax(sims)]
     return books_df.loc[best_idx]
 
-# ---------- CLI ----------
-def main():
+# ---------- MAIN ----------
+def main(no_cli: bool = False):
     cfg = dict(n_factors=10, n_epochs=20, lr_all=0.01, reg_all=0.01)
-    wandb.init(project="book-recommendation-system-hw5", config=cfg)
+    run = wandb.init(project="book-recommendation-system-hw5", config=cfg)
 
     ratings = load_ratings(DATA_DIR / "user_book_ratings.csv")
     books   = load_books(DATA_DIR / "ukr_books_dataset.csv")
@@ -75,23 +72,40 @@ def main():
     model, rmse = train_svd(ratings, cfg)
     wandb.log({"RMSE": rmse})
 
-    with open(MODEL_DIR / "svd_model.pkl", "wb") as f:
+    model_path = MODEL_DIR / "svd_model.pkl"
+    with open(model_path, "wb") as f:
         pickle.dump(model, f)
 
-    wandb.finish()
+    # ── Versioning with W&B Artifacts ───────────────────────────────
+    artifact = wandb.Artifact(
+        name="svd_model",
+        type="model",
+        metadata={**cfg, "rmse": float(rmse)},
+    )
+    artifact.add_file(str(model_path))
+    run.log_artifact(artifact)
 
-    tfidf = TfidfVectorizer(max_features=5000).fit(books["description"])
+    # ── CLI interaction (skip if --no-cli) ──────────────────────────
+    if not no_cli:
+        tfidf = TfidfVectorizer(max_features=5000).fit(books["description"])
+        desc  = input("Введіть короткий опис книги:\n").strip()
+        genre = input("Введіть жанр книги:\n").strip()
+        rec   = get_recommendation(books, tfidf, desc, genre)
+        if rec is None:
+            print(f"Жанр «{genre}» не знайдено.")
+        else:
+            print("\nРекомендована книга:")
+            print(f"{rec['title']} — {rec['genre']}")
 
-    desc  = input("Введіть короткий опис книги:\n").strip()
-    genre = input("Введіть жанр книги:\n").strip()
+    run.finish()
 
-    rec = get_recommendation(books, tfidf, desc, genre)
-
-    if rec is None:
-        print(f"Жанр «{genre}» не знайдено.")
-    else:
-        print("\nРекомендована книга:")
-        print(f"{rec['title']} — {rec['genre']}")
-
+# ---------- Entry point ----------
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--no-cli", action="store_true",
+                        help="Skip interactive prompts (useful for CI)")
+    args = parser.parse_args()
+    try:
+        main(no_cli=args.no_cli)
+    except KeyboardInterrupt:
+        sys.exit(0)
