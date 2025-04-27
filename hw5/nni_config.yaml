@@ -1,0 +1,26 @@
+# nni_config.yaml
+experimentName: "svd_nni_experiment"
+
+trialConcurrency:     1           # скільки одночасних трейлів
+maxTrialNumber:       20          # загальна кількість трейлів
+maxExperimentDuration: "1h"       # максимальна тривалість експерименту
+
+useAnnotation: false             # ми використовуємо nni.get_next_parameter(), а не анотації
+
+# Файл із простором пошуку гіперпараметрів
+searchSpaceFile: "search_space.json"
+
+# Алгоритм HPO
+tuner:
+  name: "TPE"
+  classArgs:
+    optimize_mode: "minimize"
+
+# Як запускати кожний трейл
+trialCommand:       "python3 nni_svd.py"
+trialCodeDirectory: "."
+
+# Деплой на локальній машині
+trainingService:
+  platform: "local"
+

@@ -1,0 +1,99 @@
+2025-04-25 18:09:37,146 INFO    StreamThr :138326 [internal.py:wandb_internal():83] W&B internal server running at pid: 138326, started at: 2025-04-25 18:09:37.146122
+2025-04-25 18:09:37,150 INFO    WriterThread:138326 [datastore.py:open_for_write():87] open: /home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_180937-ifexuxb8/run-ifexuxb8.wandb
+2025-04-25 18:09:38,165 INFO    SenderThread:138326 [dir_watcher.py:__init__():211] watching files in: /home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_180937-ifexuxb8/files
+2025-04-25 18:09:38,165 INFO    SenderThread:138326 [sender.py:_start_run_threads():1134] run started: ifexuxb8 with start time 1745593777.144022
+2025-04-25 18:09:38,206 INFO    HandlerThread:138326 [system_monitor.py:start():187] Starting system monitor
+2025-04-25 18:09:38,206 INFO    SystemMonitor:138326 [system_monitor.py:_start():151] Starting system asset monitoring threads
+2025-04-25 18:09:38,206 INFO    HandlerThread:138326 [system_monitor.py:probe():207] Collecting system info
+2025-04-25 18:09:38,207 INFO    SystemMonitor:138326 [interfaces.py:start():186] Started cpu monitoring
+2025-04-25 18:09:38,208 INFO    SystemMonitor:138326 [interfaces.py:start():186] Started disk monitoring
+2025-04-25 18:09:38,210 INFO    SystemMonitor:138326 [interfaces.py:start():186] Started memory monitoring
+2025-04-25 18:09:38,211 INFO    SystemMonitor:138326 [interfaces.py:start():186] Started network monitoring
+2025-04-25 18:09:38,231 INFO    HandlerThread:138326 [system_monitor.py:probe():217] Finished collecting system info
+2025-04-25 18:09:38,231 INFO    HandlerThread:138326 [system_monitor.py:probe():220] Publishing system info
+2025-04-25 18:09:38,232 INFO    HandlerThread:138326 [system_monitor.py:probe():222] Finished publishing system info
+2025-04-25 18:09:38,234 INFO    SenderThread:138326 [sender.py:_save_file():1403] saving file wandb-metadata.json with policy now
+2025-04-25 18:09:38,774 INFO    SenderThread:138326 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2025-04-25 18:09:39,167 INFO    Thread-12 :138326 [dir_watcher.py:_on_file_created():272] file/dir created: /home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_180937-ifexuxb8/files/requirements.txt
+2025-04-25 18:09:39,167 INFO    Thread-12 :138326 [dir_watcher.py:_on_file_created():272] file/dir created: /home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_180937-ifexuxb8/files/wandb-metadata.json
+2025-04-25 18:09:39,167 INFO    Thread-12 :138326 [dir_watcher.py:_on_file_created():272] file/dir created: /home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_180937-ifexuxb8/files/wandb-summary.json
+2025-04-25 18:09:39,188 INFO    wandb-upload_0:138326 [upload_job.py:push():130] Uploaded file /tmp/tmpkjeanc7cwandb/sly4zkna-wandb-metadata.json
+2025-04-25 18:09:41,539 INFO    wandb-upload_0:138326 [upload_job.py:push():88] Uploaded file /home/anatolii-shara/.local/share/wandb/artifacts/staging/tmpke8ikke0
+2025-04-25 18:09:42,872 INFO    SenderThread:138326 [sender.py:send_request_log_artifact():1487] logged artifact svd-model-sweep - {'id': 'QXJ0aWZhY3Q6MTY4NTUyOTkyNQ==', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjYyMjEwMTc2OQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MTY4NTUyOTUxNA==', 'versionIndex': 13}}}
+2025-04-25 18:09:42,872 INFO    SenderThread:138326 [sender.py:send_exit():554] handling exit code: 0
+2025-04-25 18:09:42,872 INFO    SenderThread:138326 [sender.py:send_exit():556] handling runtime: 1
+2025-04-25 18:09:42,874 INFO    SenderThread:138326 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2025-04-25 18:09:42,874 INFO    SenderThread:138326 [sender.py:send_exit():562] send defer
+2025-04-25 18:09:42,874 INFO    HandlerThread:138326 [handler.py:handle_request_defer():188] handle defer: 0
+2025-04-25 18:09:42,875 INFO    SenderThread:138326 [sender.py:send_request_defer():578] handle sender defer: 0
+2025-04-25 18:09:42,875 INFO    SenderThread:138326 [sender.py:transition_state():582] send defer: 1
+2025-04-25 18:09:42,876 INFO    HandlerThread:138326 [handler.py:handle_request_defer():188] handle defer: 1
+2025-04-25 18:09:42,876 INFO    SenderThread:138326 [sender.py:send_request_defer():578] handle sender defer: 1
+2025-04-25 18:09:42,876 INFO    SenderThread:138326 [sender.py:transition_state():582] send defer: 2
+2025-04-25 18:09:42,877 INFO    HandlerThread:138326 [handler.py:handle_request_defer():188] handle defer: 2
+2025-04-25 18:09:42,877 INFO    HandlerThread:138326 [system_monitor.py:finish():196] Stopping system monitor
+2025-04-25 18:09:42,878 INFO    HandlerThread:138326 [interfaces.py:finish():198] Joined cpu monitor
+2025-04-25 18:09:42,879 INFO    HandlerThread:138326 [interfaces.py:finish():198] Joined disk monitor
+2025-04-25 18:09:42,879 INFO    HandlerThread:138326 [interfaces.py:finish():198] Joined memory monitor
+2025-04-25 18:09:42,879 INFO    HandlerThread:138326 [interfaces.py:finish():198] Joined network monitor
+2025-04-25 18:09:42,879 INFO    SenderThread:138326 [sender.py:send_request_defer():578] handle sender defer: 2
+2025-04-25 18:09:42,879 INFO    SenderThread:138326 [sender.py:transition_state():582] send defer: 3
+2025-04-25 18:09:42,880 INFO    HandlerThread:138326 [handler.py:handle_request_defer():188] handle defer: 3
+2025-04-25 18:09:42,880 INFO    SenderThread:138326 [sender.py:send_request_defer():578] handle sender defer: 3
+2025-04-25 18:09:42,880 INFO    SenderThread:138326 [sender.py:transition_state():582] send defer: 4
+2025-04-25 18:09:42,881 INFO    HandlerThread:138326 [handler.py:handle_request_defer():188] handle defer: 4
+2025-04-25 18:09:42,881 INFO    SenderThread:138326 [sender.py:send_request_defer():578] handle sender defer: 4
+2025-04-25 18:09:42,881 INFO    SenderThread:138326 [sender.py:transition_state():582] send defer: 5
+2025-04-25 18:09:42,881 INFO    HandlerThread:138326 [handler.py:handle_request_defer():188] handle defer: 5
+2025-04-25 18:09:42,882 INFO    SenderThread:138326 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2025-04-25 18:09:42,882 INFO    SenderThread:138326 [sender.py:send_request_defer():578] handle sender defer: 5
+2025-04-25 18:09:42,882 INFO    SenderThread:138326 [sender.py:transition_state():582] send defer: 6
+2025-04-25 18:09:42,882 INFO    HandlerThread:138326 [handler.py:handle_request_defer():188] handle defer: 6
+2025-04-25 18:09:42,883 INFO    SenderThread:138326 [sender.py:send_request_defer():578] handle sender defer: 6
+2025-04-25 18:09:43,087 INFO    SenderThread:138326 [sender.py:transition_state():582] send defer: 7
+2025-04-25 18:09:43,087 INFO    HandlerThread:138326 [handler.py:handle_request_defer():188] handle defer: 7
+2025-04-25 18:09:43,088 INFO    SenderThread:138326 [sender.py:send_request_defer():578] handle sender defer: 7
+2025-04-25 18:09:43,088 INFO    SenderThread:138326 [sender.py:transition_state():582] send defer: 8
+2025-04-25 18:09:43,088 INFO    HandlerThread:138326 [handler.py:handle_request_defer():188] handle defer: 8
+2025-04-25 18:09:43,088 INFO    SenderThread:138326 [sender.py:send_request_defer():578] handle sender defer: 8
+2025-04-25 18:09:43,089 INFO    SenderThread:138326 [sender.py:transition_state():582] send defer: 9
+2025-04-25 18:09:43,089 INFO    HandlerThread:138326 [handler.py:handle_request_defer():188] handle defer: 9
+2025-04-25 18:09:43,089 INFO    SenderThread:138326 [sender.py:send_request_defer():578] handle sender defer: 9
+2025-04-25 18:09:43,089 INFO    SenderThread:138326 [dir_watcher.py:finish():359] shutting down directory watcher
+2025-04-25 18:09:43,168 INFO    Thread-12 :138326 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_180937-ifexuxb8/files/wandb-summary.json
+2025-04-25 18:09:43,169 INFO    SenderThread:138326 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_180937-ifexuxb8/files/config.yaml
+2025-04-25 18:09:43,170 INFO    SenderThread:138326 [dir_watcher.py:finish():389] scan: /home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_180937-ifexuxb8/files
+2025-04-25 18:09:43,170 INFO    SenderThread:138326 [dir_watcher.py:finish():403] scan save: /home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_180937-ifexuxb8/files/wandb-summary.json wandb-summary.json
+2025-04-25 18:09:43,170 INFO    SenderThread:138326 [dir_watcher.py:finish():403] scan save: /home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_180937-ifexuxb8/files/config.yaml config.yaml
+2025-04-25 18:09:43,171 INFO    SenderThread:138326 [dir_watcher.py:finish():403] scan save: /home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_180937-ifexuxb8/files/wandb-metadata.json wandb-metadata.json
+2025-04-25 18:09:43,171 INFO    SenderThread:138326 [dir_watcher.py:finish():403] scan save: /home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_180937-ifexuxb8/files/requirements.txt requirements.txt
+2025-04-25 18:09:43,175 INFO    SenderThread:138326 [sender.py:transition_state():582] send defer: 10
+2025-04-25 18:09:43,180 INFO    HandlerThread:138326 [handler.py:handle_request_defer():188] handle defer: 10
+2025-04-25 18:09:43,181 INFO    SenderThread:138326 [sender.py:send_request_defer():578] handle sender defer: 10
+2025-04-25 18:09:43,181 INFO    SenderThread:138326 [file_pusher.py:finish():169] shutting down file pusher
+2025-04-25 18:09:43,892 INFO    wandb-upload_0:138326 [upload_job.py:push():130] Uploaded file /home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_180937-ifexuxb8/files/wandb-summary.json
+2025-04-25 18:09:43,892 INFO    wandb-upload_1:138326 [upload_job.py:push():130] Uploaded file /home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_180937-ifexuxb8/files/config.yaml
+2025-04-25 18:09:44,348 INFO    wandb-upload_2:138326 [upload_job.py:push():130] Uploaded file /home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_180937-ifexuxb8/files/requirements.txt
+2025-04-25 18:09:44,549 INFO    Thread-11 (_thread_body):138326 [sender.py:transition_state():582] send defer: 11
+2025-04-25 18:09:44,549 INFO    HandlerThread:138326 [handler.py:handle_request_defer():188] handle defer: 11
+2025-04-25 18:09:44,550 INFO    SenderThread:138326 [sender.py:send_request_defer():578] handle sender defer: 11
+2025-04-25 18:09:44,550 INFO    SenderThread:138326 [file_pusher.py:join():175] waiting for file pusher
+2025-04-25 18:09:44,551 INFO    SenderThread:138326 [sender.py:transition_state():582] send defer: 12
+2025-04-25 18:09:44,551 INFO    HandlerThread:138326 [handler.py:handle_request_defer():188] handle defer: 12
+2025-04-25 18:09:44,551 INFO    SenderThread:138326 [sender.py:send_request_defer():578] handle sender defer: 12
+2025-04-25 18:09:44,551 INFO    SenderThread:138326 [file_stream.py:finish():601] file stream finish called
+2025-04-25 18:09:44,917 INFO    SenderThread:138326 [file_stream.py:finish():605] file stream finish is done
+2025-04-25 18:09:44,917 INFO    SenderThread:138326 [sender.py:transition_state():582] send defer: 13
+2025-04-25 18:09:44,917 INFO    HandlerThread:138326 [handler.py:handle_request_defer():188] handle defer: 13
+2025-04-25 18:09:44,918 INFO    SenderThread:138326 [sender.py:send_request_defer():578] handle sender defer: 13
+2025-04-25 18:09:44,918 INFO    SenderThread:138326 [sender.py:transition_state():582] send defer: 14
+2025-04-25 18:09:44,918 INFO    HandlerThread:138326 [handler.py:handle_request_defer():188] handle defer: 14
+2025-04-25 18:09:44,920 INFO    SenderThread:138326 [sender.py:send_request_defer():578] handle sender defer: 14
+2025-04-25 18:09:44,923 INFO    MainThread:138326 [wandb_run.py:_footer_history_summary_info():4160] rendering history
+2025-04-25 18:09:44,923 INFO    MainThread:138326 [wandb_run.py:_footer_history_summary_info():4192] rendering summary
+2025-04-25 18:09:44,924 INFO    MainThread:138326 [wandb_run.py:_footer_sync_info():4121] logging synced files
+2025-04-25 18:09:44,924 INFO    HandlerThread:138326 [handler.py:finish():897] shutting down handler
+2025-04-25 18:09:45,922 INFO    WriterThread:138326 [datastore.py:close():296] close: /home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_180937-ifexuxb8/run-ifexuxb8.wandb
+2025-04-25 18:09:45,922 INFO    SenderThread:138326 [sender.py:finish():1584] shutting down sender
+2025-04-25 18:09:45,923 INFO    SenderThread:138326 [file_pusher.py:finish():169] shutting down file pusher
+2025-04-25 18:09:45,923 INFO    SenderThread:138326 [file_pusher.py:join():175] waiting for file pusher

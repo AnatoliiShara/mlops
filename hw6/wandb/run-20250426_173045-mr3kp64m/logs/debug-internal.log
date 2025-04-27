@@ -1,0 +1,15 @@
+{"time":"2025-04-26T17:30:45.779321592+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.10","symlink path":"/home/anatolii-shara/Documents/mlops_projector/hw6/wandb/run-20250426_173045-mr3kp64m/logs/debug-core.log"}
+{"time":"2025-04-26T17:30:46.382125405+03:00","level":"INFO","msg":"created new stream","id":"mr3kp64m"}
+{"time":"2025-04-26T17:30:46.382152574+03:00","level":"INFO","msg":"stream: started","id":"mr3kp64m"}
+{"time":"2025-04-26T17:30:46.382203288+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"mr3kp64m"}
+{"time":"2025-04-26T17:30:46.382223137+03:00","level":"INFO","msg":"handler: started","stream_id":"mr3kp64m"}
+{"time":"2025-04-26T17:30:46.382292896+03:00","level":"INFO","msg":"sender: started","stream_id":"mr3kp64m"}
+{"time":"2025-04-26T17:30:46.695332379+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-26T17:30:46.827862334+03:00","level":"INFO","msg":"stream: closing","id":"mr3kp64m"}
+{"time":"2025-04-26T17:30:46.827894227+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-26T17:30:46.827961043+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-26T17:30:48.430083569+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-26T17:30:49.044122391+03:00","level":"INFO","msg":"handler: closed","stream_id":"mr3kp64m"}
+{"time":"2025-04-26T17:30:49.044200102+03:00","level":"INFO","msg":"sender: closed","stream_id":"mr3kp64m"}
+{"time":"2025-04-26T17:30:49.044181737+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"mr3kp64m"}
+{"time":"2025-04-26T17:30:49.044317352+03:00","level":"INFO","msg":"stream: closed","id":"mr3kp64m"}

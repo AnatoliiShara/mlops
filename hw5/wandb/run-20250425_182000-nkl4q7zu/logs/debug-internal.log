@@ -1,0 +1,16 @@
+{"time":"2025-04-25T18:20:00.137887596+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.10","symlink path":"/home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_182000-nkl4q7zu/logs/debug-core.log"}
+{"time":"2025-04-25T18:20:00.741429885+03:00","level":"INFO","msg":"created new stream","id":"nkl4q7zu"}
+{"time":"2025-04-25T18:20:00.741459112+03:00","level":"INFO","msg":"stream: started","id":"nkl4q7zu"}
+{"time":"2025-04-25T18:20:00.741478644+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"nkl4q7zu"}
+{"time":"2025-04-25T18:20:00.741523515+03:00","level":"INFO","msg":"sender: started","stream_id":"nkl4q7zu"}
+{"time":"2025-04-25T18:20:00.741555302+03:00","level":"INFO","msg":"handler: started","stream_id":"nkl4q7zu"}
+{"time":"2025-04-25T18:20:00.984049405+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-25T18:20:42.414541405+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-25T18:20:42.414621792+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-25T18:20:43.34324281+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-25T18:20:43.37940569+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading summary, console lines 1-5","runtime_seconds":0.035839229}],"total_operations":1}}
+{"time":"2025-04-25T18:20:43.766598059+03:00","level":"INFO","msg":"stream: closing","id":"nkl4q7zu"}
+{"time":"2025-04-25T18:20:43.766636212+03:00","level":"INFO","msg":"handler: closed","stream_id":"nkl4q7zu"}
+{"time":"2025-04-25T18:20:43.766651844+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"nkl4q7zu"}
+{"time":"2025-04-25T18:20:43.766750901+03:00","level":"INFO","msg":"sender: closed","stream_id":"nkl4q7zu"}
+{"time":"2025-04-25T18:20:43.766791304+03:00","level":"INFO","msg":"stream: closed","id":"nkl4q7zu"}

@@ -1,0 +1,6 @@
+{
+    "n_factors": { "_type": "choice",  "_value": [20, 50, 100] },
+    "lr_all":    { "_type": "uniform", "_value": [0.001,  0.01]   },
+    "reg_all":   { "_type": "uniform", "_value": [0.001,  0.1]    }
+  }
+  
