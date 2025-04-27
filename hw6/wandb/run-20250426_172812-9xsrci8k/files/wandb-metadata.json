@@ -1,0 +1,31 @@
+{
+  "os": "Linux-6.8.0-58-generic-x86_64-with-glibc2.39",
+  "python": "CPython 3.12.3",
+  "startedAt": "2025-04-26T14:28:12.572487Z",
+  "program": "/home/anatolii-shara/Documents/mlops_projector/hw6/src/rec_sys/pipeline.py",
+  "codePath": "hw6/src/rec_sys/pipeline.py",
+  "git": {
+    "remote": "https://github.com/AnatoliiShara/mlops.git",
+    "commit": "16ee7c4ec561d282991b5745e3bba0f81c69280e"
+  },
+  "email": "anfrankleen23@gmail.com",
+  "root": "/home/anatolii-shara/Documents/mlops_projector/hw6",
+  "host": "anatoliishara-IdeaPad-Slim-5-16IAH8",
+  "executable": "/home/anatolii-shara/Documents/mlops_projector/venv/bin/python",
+  "codePathLocal": "src/rec_sys/pipeline.py",
+  "cpu_count": 8,
+  "cpu_count_logical": 12,
+  "disk": {
+    "/": {
+      "total": "502392610816",
+      "used": "307783421952"
+    }
+  },
+  "memory": {
+    "total": "16479297536"
+  },
+  "cpu": {
+    "count": 8,
+    "countLogical": 12
+  }
+}
