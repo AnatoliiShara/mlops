@@ -1,0 +1,139 @@
+# PIPELINE DEFINITION
+# Name: hw7-inference-pipeline
+# Inputs:
+#    data_path: str [Default: 'data/ukr_books_dataset.csv']
+#    model_path: str [Default: 'models/sentence_model.joblib']
+#    output_path: str [Default: 'inference_results.csv']
+components:
+  comp-inference-component:
+    executorLabel: exec-inference-component
+    inputDefinitions:
+      parameters:
+        data_path:
+          parameterType: STRING
+        model_path:
+          parameterType: STRING
+        output_path:
+          parameterType: STRING
+  comp-load-data-for-inference:
+    executorLabel: exec-load-data-for-inference
+    inputDefinitions:
+      parameters:
+        data_path:
+          parameterType: STRING
+    outputDefinitions:
+      parameters:
+        Output:
+          parameterType: STRING
+deploymentSpec:
+  executors:
+    exec-inference-component:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - inference_component
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.13.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"\
+          $0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef inference_component(data_path: str, model_path: str, output_path:\
+          \ str):\n    from src import infer\n    infer.run_inference(data_path, model_path,\
+          \ output_path)\n\n"
+        image: python:3.9
+    exec-load-data-for-inference:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - load_data_for_inference
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.13.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"' && \"\
+          $0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef load_data_for_inference(data_path: str) -> str:\n    return data_path\n\
+          \n"
+        image: python:3.9
+pipelineInfo:
+  name: hw7-inference-pipeline
+root:
+  dag:
+    tasks:
+      inference-component:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-inference-component
+        dependentTasks:
+        - load-data-for-inference
+        inputs:
+          parameters:
+            data_path:
+              taskOutputParameter:
+                outputParameterKey: Output
+                producerTask: load-data-for-inference
+            model_path:
+              componentInputParameter: model_path
+            output_path:
+              componentInputParameter: output_path
+        taskInfo:
+          name: inference-component
+      load-data-for-inference:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-load-data-for-inference
+        inputs:
+          parameters:
+            data_path:
+              componentInputParameter: data_path
+        taskInfo:
+          name: load-data-for-inference
+  inputDefinitions:
+    parameters:
+      data_path:
+        defaultValue: data/ukr_books_dataset.csv
+        isOptional: true
+        parameterType: STRING
+      model_path:
+        defaultValue: models/sentence_model.joblib
+        isOptional: true
+        parameterType: STRING
+      output_path:
+        defaultValue: inference_results.csv
+        isOptional: true
+        parameterType: STRING
+schemaVersion: 2.1.0
+sdkVersion: kfp-2.13.0
