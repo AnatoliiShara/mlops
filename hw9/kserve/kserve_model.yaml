@@ -1,0 +1,15 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: tinyllama
+spec:
+  predictor:
+    containers:
+      - name: kserve-container
+        image: toliaba/tinyllama-kserve:latest
+        ports:
+          - containerPort: 8080
+        resources:
+          limits:
+            cpu: "2"
+            memory: "4Gi"
