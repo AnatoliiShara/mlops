@@ -1,0 +1,20 @@
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: tinyllama-deployment
+spec:
+  name: llm
+  predictors:
+  - name: default
+    replicas: 1
+    graph:
+      implementation: CUSTOM
+      modelUri: ""
+      name: tinyllama
+      envSecretRefName: seldon-secrets
+    componentSpecs:
+    - spec:
+        containers:
+        - name: tinyllama
+          image: your-dockerhub-username/tinyllama:latest
+          imagePullPolicy: IfNotPresent
