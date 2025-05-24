@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: book-recommender-config
+  namespace: ml-hw12
+data:
+  DATA_PATH: "/app/data/ukr_books_dataset.csv"
+  EMBEDDINGS_PATH: "/app/models/embeddings.npy"
+  EMBEDDER_MODEL: "sentence-transformers/all-MiniLM-L12-v2"
+  CROSS_ENCODER_MODEL: "cross-encoder/ms-marco-MiniLM-L-6-v2"
