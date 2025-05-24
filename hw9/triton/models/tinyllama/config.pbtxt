@@ -1,0 +1,24 @@
+name: "tinyllama"
+backend: "python"
+
+input [
+  {
+    name: "input__0"
+    data_type: TYPE_STRING
+    dims: [1]
+  }
+]
+
+output [
+  {
+    name: "output__0"
+    data_type: TYPE_STRING
+    dims: [1]
+  }
+]
+
+instance_group [
+  {
+    kind: KIND_CPU
+  }
+]
