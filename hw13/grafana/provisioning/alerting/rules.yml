@@ -1,0 +1,194 @@
+apiVersion: 1
+
+groups:
+  - name: book_recommendation_alerts
+    orgId: 1
+    folder: MLOps Alerts
+    interval: 1m
+    rules:
+      - uid: high_search_latency
+        title: High Search Latency
+        condition: A
+        data:
+          - refId: A
+            queryType: ''
+            relativeTimeRange:
+              from: 300
+              to: 0
+            datasourceUid: prometheus
+            model:
+              expr: histogram_quantile(0.95, rate(book_search_duration_seconds_bucket[5m])) > 3
+              intervalMs: 1000
+              maxDataPoints: 43200
+              refId: A
+        noDataState: NoData
+        execErrState: Alerting
+        for: 2m
+        annotations:
+          description: 'Search latency P95 is above 3 seconds: {{ $value }}s'
+          summary: High search latency detected in book recommendation system
+        labels:
+          severity: warning
+          team: ml-ops
+          component: search-pipeline
+
+      - uid: high_error_rate
+        title: High Error Rate
+        condition: A
+        data:
+          - refId: A
+            queryType: ''
+            relativeTimeRange:
+              from: 300
+              to: 0
+            datasourceUid: prometheus
+            model:
+              expr: rate(book_errors_total[5m]) * 60 > 5
+              intervalMs: 1000
+              maxDataPoints: 43200
+              refId: A
+        noDataState: NoData
+        execErrState: Alerting
+        for: 1m
+        annotations:
+          description: 'Error rate is above 5 errors per minute: {{ $value }} errors/min'
+          summary: High error rate detected in book recommendation system
+        labels:
+          severity: critical
+          team: ml-ops
+          component: application
+
+      - uid: low_user_satisfaction
+        title: Low User Satisfaction
+        condition: A
+        data:
+          - refId: A
+            queryType: ''
+            relativeTimeRange:
+              from: 600
+              to: 0
+            datasourceUid: prometheus
+            model:
+              expr: book_user_satisfaction_rate < 0.7
+              intervalMs: 1000
+              maxDataPoints: 43200
+              refId: A
+        noDataState: NoData
+        execErrState: Alerting
+        for: 5m
+        annotations:
+          description: 'User satisfaction rate is below 70%: {{ $value | humanizePercentage }}'
+          summary: Low user satisfaction detected - investigate recommendation quality
+        labels:
+          severity: warning
+          team: ml-ops
+          component: recommendations
+
+      - uid: system_memory_high
+        title: High System Memory Usage
+        condition: A
+        data:
+          - refId: A
+            queryType: ''
+            relativeTimeRange:
+              from: 300
+              to: 0
+            datasourceUid: prometheus
+            model:
+              expr: book_system_memory_usage_bytes > 4000000000
+              intervalMs: 1000
+              maxDataPoints: 43200
+              refId: A
+        noDataState: NoData
+        execErrState: Alerting
+        for: 3m
+        annotations:
+          description: 'System memory usage is above 4GB: {{ $value | humanizeBytes }}'
+          summary: High memory usage detected - potential memory leak or high load
+        labels:
+          severity: warning
+          team: ml-ops
+          component: system
+
+      - uid: drift_detection_failure
+        title: Drift Detection Pipeline Failure
+        condition: A
+        data:
+          - refId: A
+            queryType: ''
+            relativeTimeRange:
+              from: 3600
+              to: 0
+            datasourceUid: prometheus
+            model:
+              expr: up{job="dagster-webserver"} == 0
+              intervalMs: 1000
+              maxDataPoints: 43200
+              refId: A
+        noDataState: Alerting
+        execErrState: Alerting
+        for: 2m
+        annotations:
+          description: 'Dagster drift detection pipeline is down'
+          summary: Drift detection system is not operational
+        labels:
+          severity: critical
+          team: ml-ops
+          component: drift-detection
+
+  - name: business_metrics_alerts
+    orgId: 1
+    folder: Business Alerts
+    interval: 5m
+    rules:
+      - uid: no_search_activity
+        title: No Search Activity
+        condition: A
+        data:
+          - refId: A
+            queryType: ''
+            relativeTimeRange:
+              from: 1800
+              to: 0
+            datasourceUid: prometheus
+            model:
+              expr: rate(book_search_requests_total[5m]) * 60 < 0.1
+              intervalMs: 1000
+              maxDataPoints: 43200
+              refId: A
+        noDataState: Alerting
+        execErrState: NoData
+        for: 10m
+        annotations:
+          description: 'Search activity is very low: {{ $value | printf "%.2f" }} requests/min'
+          summary: Very low or no search activity detected
+        labels:
+          severity: warning
+          team: product
+          component: user-activity
+
+      - uid: recommendation_quality_degradation
+        title: Recommendation Quality Degradation
+        condition: A
+        data:
+          - refId: A
+            queryType: ''
+            relativeTimeRange:
+              from: 1800
+              to: 0
+            datasourceUid: prometheus
+            model:
+              expr: histogram_quantile(0.95, rate(book_search_results_count_bucket[5m])) < 3
+              intervalMs: 1000
+              maxDataPoints: 43200
+              refId: A
+        noDataState: NoData
+        execErrState: Alerting
+        for: 10m
+        annotations:
+          description: 'P95 results count is below 3: {{ $value | printf "%.1f" }} results'
+          summary: Recommendation system returning fewer results than expected
+        labels:
+          severity: warning
+          team: ml-ops
+          component: recommendations

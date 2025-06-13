@@ -1,0 +1,38 @@
+FROM python:3.10-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    build-essential \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements first for better caching
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Copy Dagster pipeline code
+COPY dagster_pipeline/ ./dagster_pipeline/
+COPY drift_detection/ ./drift_detection/
+
+# Copy data directory
+COPY data/ ./data/
+
+# Set environment variables
+ENV DAGSTER_HOME=/tmp/dagster
+ENV PYTHONPATH=/app
+
+# Create dagster directories
+RUN mkdir -p /tmp/dagster
+
+# Expose port for webserver
+EXPOSE 3070
+
+# Default command (will be overridden by docker-compose)
+CMD ["dagster-webserver", "--host", "0.0.0.0", "--port", "3070"]
