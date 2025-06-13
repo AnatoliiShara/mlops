@@ -1,10 +1,8 @@
-# hw10/streamlit/app.py
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import streamlit as st
-import numpy as np
-import faiss
+import faiss, numpy as np
 from rank_bm25 import BM25Okapi
 from sentence_transformers import SentenceTransformer, CrossEncoder
 from sklearn.preprocessing import normalize
@@ -23,15 +21,14 @@ def load_models():
     return embedder, reranker
 
 
-# ─────────────── Індекс + BM25 ────────────────
 @st.cache_data(show_spinner=False)
-def prepare_index(df, _embedder):        # 👈 підкреслення
+def prepare_index(df, _embedder):            # ← підкреслення!
     corpus = df["description"].astype(str).tolist()
     tokenized = [t.split() for t in corpus]
 
     bm25 = BM25Okapi(tokenized)
 
-    emb = _embedder.encode(              # 👈 назва змінної теж з підкресленням
+    emb = _embedder.encode(                  # ← змінна з підкресленням
         corpus, convert_to_numpy=True, show_progress_bar=True
     )
     emb = normalize(emb)
@@ -42,7 +39,9 @@ def prepare_index(df, _embedder):        # 👈 підкреслення
 
 
 # ─────────────────── DATA ─────────────────────
-DATA_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "ukr_books_dataset.csv"))
+DATA_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "ukr_books_dataset.csv")
+)
 df_books = load_data(DATA_PATH)
 
 embedder, cross_enc = load_models()
