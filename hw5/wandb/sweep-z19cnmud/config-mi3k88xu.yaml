@@ -1,0 +1,8 @@
+wandb_version: 1
+
+lr_all:
+  value: 0.01
+n_factors:
+  value: 10
+reg_all:
+  value: 0.01

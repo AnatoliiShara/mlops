@@ -1,0 +1,5 @@
+outs:
+- md5: 205633bb5c9825a380c33edc8e38eead
+  size: 40960
+  hash: md5
+  path: books.db

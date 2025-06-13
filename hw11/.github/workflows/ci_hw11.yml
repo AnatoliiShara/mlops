@@ -1,0 +1,10 @@
+- name: Install hw11 deps
+  run: pip install -r hw11/requirements.txt
+
+- name: Run benchmark (30s)
+  run: |
+      chmod +x hw11/benchmarks/run_benchmark.sh
+      hw11/benchmarks/run_benchmark.sh
+
+- name: Print report
+  run: python hw11/benchmarks/parse_locust_json.py

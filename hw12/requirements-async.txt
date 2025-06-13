@@ -1,0 +1,7 @@
+# Base requirements
+-r requirements.txt
+
+# Async components
+aiokafka==0.10.0
+redis[hiredis]==5.0.1
+async-timeout==4.0.3

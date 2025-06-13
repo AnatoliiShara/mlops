@@ -1,0 +1,15 @@
+{"time":"2025-04-25T17:47:19.780574266+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.10","symlink path":"/home/anatolii-shara/Documents/mlops_projector/hw5/wandb/run-20250425_174719-sb6ztbk7/logs/debug-core.log"}
+{"time":"2025-04-25T17:47:20.589291827+03:00","level":"INFO","msg":"created new stream","id":"sb6ztbk7"}
+{"time":"2025-04-25T17:47:20.589360412+03:00","level":"INFO","msg":"stream: started","id":"sb6ztbk7"}
+{"time":"2025-04-25T17:47:20.589491874+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"sb6ztbk7"}
+{"time":"2025-04-25T17:47:20.589557619+03:00","level":"INFO","msg":"sender: started","stream_id":"sb6ztbk7"}
+{"time":"2025-04-25T17:47:20.58970799+03:00","level":"INFO","msg":"handler: started","stream_id":"sb6ztbk7"}
+{"time":"2025-04-25T17:47:21.051373761+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-25T17:47:22.505355458+03:00","level":"INFO","msg":"stream: closing","id":"sb6ztbk7"}
+{"time":"2025-04-25T17:47:22.505402432+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-25T17:47:22.505463495+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-25T17:47:24.416177136+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-25T17:47:24.704726014+03:00","level":"INFO","msg":"handler: closed","stream_id":"sb6ztbk7"}
+{"time":"2025-04-25T17:47:24.704834125+03:00","level":"INFO","msg":"sender: closed","stream_id":"sb6ztbk7"}
+{"time":"2025-04-25T17:47:24.70480546+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"sb6ztbk7"}
+{"time":"2025-04-25T17:47:24.704987643+03:00","level":"INFO","msg":"stream: closed","id":"sb6ztbk7"}

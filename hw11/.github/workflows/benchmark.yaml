@@ -1,0 +1,40 @@
+name: bench-hw11
+on: [workflow_dispatch]          # запуск вручну
+
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    services:
+      model:
+        image: ghcr.io/<you>/hw10-fastapi:latest     # ← REST
+        ports: [ "8000:8000" ]
+      model-grpc:
+        image: ghcr.io/<you>/kserve-grpc:latest      # ← gRPC
+        ports: [ "9001:9001" ]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with: { python-version: "3.10" }
+
+      - name: Install bench requirements
+        run: |
+          pip install -r hw11/benchmarks/requirements.txt
+
+      - name: Run REST bench
+        run: |
+          cd hw11/benchmarks && ./run_rest.sh
+
+      - name: Run gRPC bench
+        run: |
+          cd hw11/benchmarks && ./run_grpc.sh
+
+      - name: Aggregate
+        run: |
+          cd hw11/benchmarks && python calcsummarize.py
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: hw11-benchmark-report
+          path: hw11/benchmarks/report.md

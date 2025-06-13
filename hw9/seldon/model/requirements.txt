@@ -1,0 +1,5 @@
+# requirements.txt
+pyyaml==5.4.1
+torch==2.0.1
+transformers==4.21.3
+seldon-core==1.15.0

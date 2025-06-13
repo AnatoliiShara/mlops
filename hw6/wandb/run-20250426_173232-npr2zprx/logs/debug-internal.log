@@ -1,0 +1,16 @@
+{"time":"2025-04-26T17:32:32.583142838+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.10","symlink path":"/home/anatolii-shara/Documents/mlops_projector/hw6/wandb/run-20250426_173232-npr2zprx/logs/debug-core.log"}
+{"time":"2025-04-26T17:32:33.397271595+03:00","level":"INFO","msg":"created new stream","id":"npr2zprx"}
+{"time":"2025-04-26T17:32:33.397477177+03:00","level":"INFO","msg":"stream: started","id":"npr2zprx"}
+{"time":"2025-04-26T17:32:33.39752798+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"npr2zprx"}
+{"time":"2025-04-26T17:32:33.39755595+03:00","level":"INFO","msg":"sender: started","stream_id":"npr2zprx"}
+{"time":"2025-04-26T17:32:33.397616325+03:00","level":"INFO","msg":"handler: started","stream_id":"npr2zprx"}
+{"time":"2025-04-26T17:32:33.851693745+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-26T17:32:33.984036853+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-26T17:32:33.984138209+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-26T17:32:34.952560083+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.218909847},{"desc":"uploading wandb-summary.json","runtime_seconds":0.218893649,"progress":"119B/119B"}],"total_operations":2}}
+{"time":"2025-04-26T17:32:35.502451433+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-26T17:32:35.90745994+03:00","level":"INFO","msg":"stream: closing","id":"npr2zprx"}
+{"time":"2025-04-26T17:32:35.907477527+03:00","level":"INFO","msg":"handler: closed","stream_id":"npr2zprx"}
+{"time":"2025-04-26T17:32:35.907488069+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"npr2zprx"}
+{"time":"2025-04-26T17:32:35.907562657+03:00","level":"INFO","msg":"sender: closed","stream_id":"npr2zprx"}
+{"time":"2025-04-26T17:32:35.907599534+03:00","level":"INFO","msg":"stream: closed","id":"npr2zprx"}

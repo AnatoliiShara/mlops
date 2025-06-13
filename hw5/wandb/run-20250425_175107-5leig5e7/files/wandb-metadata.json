@@ -1,0 +1,31 @@
+{
+  "os": "Linux-6.8.0-58-generic-x86_64-with-glibc2.39",
+  "python": "CPython 3.12.3",
+  "startedAt": "2025-04-25T14:51:07.930027Z",
+  "program": "/home/anatolii-shara/Documents/mlops_projector/hw5/train_and_recommend.py",
+  "codePath": "hw5/train_and_recommend.py",
+  "git": {
+    "remote": "https://github.com/AnatoliiShara/mlops.git",
+    "commit": "ea27ae7026af92cfdba4e4080588aec3fff0c725"
+  },
+  "email": "anfrankleen23@gmail.com",
+  "root": "/home/anatolii-shara/Documents/mlops_projector/hw5",
+  "host": "anatoliishara-IdeaPad-Slim-5-16IAH8",
+  "executable": "/home/anatolii-shara/Documents/mlops_projector/venv/bin/python",
+  "codePathLocal": "train_and_recommend.py",
+  "cpu_count": 8,
+  "cpu_count_logical": 12,
+  "disk": {
+    "/": {
+      "total": "502392610816",
+      "used": "306419826688"
+    }
+  },
+  "memory": {
+    "total": "16479297536"
+  },
+  "cpu": {
+    "count": 8,
+    "countLogical": 12
+  }
+}

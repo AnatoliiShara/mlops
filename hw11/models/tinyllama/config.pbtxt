@@ -1,0 +1,17 @@
+name: "tinyllama"
+backend: "python"
+max_batch_size: 32
+
+input [
+  { name: "input__0" data_type: TYPE_STRING dims: [ -1 ] }
+]
+output [
+  { name: "output__0" data_type: TYPE_STRING dims: [ -1 ] }
+]
+
+instance_group [ { kind: KIND_CPU count: 1 } ]
+
+dynamic_batching {
+  preferred_batch_size: [ 4, 8, 16, 32 ]
+  max_queue_delay_microseconds: 10000   # ≤ 10 мс чекаємо, щоб набрати batch
+}

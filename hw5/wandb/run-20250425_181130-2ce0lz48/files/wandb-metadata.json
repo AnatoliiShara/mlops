@@ -1,0 +1,106 @@
+{
+    "os": "Linux-6.8.0-58-generic-x86_64-with-glibc2.39",
+    "python": "CPython 3.12.3",
+    "heartbeatAt": "2025-04-25T15:11:31.475060",
+    "startedAt": "2025-04-25T15:11:30.794682",
+    "docker": null,
+    "args": [
+        "service",
+        "--debug",
+        "--port-filename",
+        "/tmp/tmpl2a87jme/port-139530.txt",
+        "--pid",
+        "139530"
+    ],
+    "state": "running",
+    "program": "/home/anatolii-shara/Documents/mlops_projector/hw5/sweep_svd.py",
+    "codePathLocal": "sweep_svd.py",
+    "codePath": "hw5/sweep_svd.py",
+    "git": {
+        "remote": "https://github.com/AnatoliiShara/mlops.git",
+        "commit": "ea27ae7026af92cfdba4e4080588aec3fff0c725"
+    },
+    "email": "Anatolii.Shara@ligazakon.ua",
+    "root": "/home/anatolii-shara/Documents/mlops_projector",
+    "host": "anatoliishara-IdeaPad-Slim-5-16IAH8",
+    "username": null,
+    "executable": "/home/anatolii-shara/Documents/mlops_projector/venv/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 1040.4470000000001,
+        "min": 400.0,
+        "max": 4033.3333333333335
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 551.826,
+            "min": 400.0,
+            "max": 4400.0
+        },
+        {
+            "current": 1215.224,
+            "min": 400.0,
+            "max": 4400.0
+        },
+        {
+            "current": 2090.777,
+            "min": 400.0,
+            "max": 4400.0
+        },
+        {
+            "current": 400.0,
+            "min": 400.0,
+            "max": 4400.0
+        },
+        {
+            "current": 551.733,
+            "min": 400.0,
+            "max": 4400.0
+        },
+        {
+            "current": 400.0,
+            "min": 400.0,
+            "max": 4400.0
+        },
+        {
+            "current": 699.527,
+            "min": 400.0,
+            "max": 4400.0
+        },
+        {
+            "current": 798.507,
+            "min": 400.0,
+            "max": 4400.0
+        },
+        {
+            "current": 1700.509,
+            "min": 400.0,
+            "max": 3300.0
+        },
+        {
+            "current": 1695.532,
+            "min": 400.0,
+            "max": 3300.0
+        },
+        {
+            "current": 1699.808,
+            "min": 400.0,
+            "max": 3300.0
+        },
+        {
+            "current": 1700.156,
+            "min": 400.0,
+            "max": 3300.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 502392610816,
+            "used": 306422018048
+        }
+    },
+    "memory": {
+        "total": 16479297536
+    }
+}
