@@ -1,0 +1,118 @@
+groups:
+  - name: book_recommendation_critical_alerts
+    rules:
+      - alert: SearchLatencyHigh
+        expr: book:search_latency:p95_5m > 3
+        for: 2m
+        labels:
+          severity: warning
+          team: ml-ops
+          component: search-pipeline
+          priority: high
+        annotations:
+          summary: "High search latency detected"
+          description: "P95 search latency is {{ $value | humanizeDuration }} (threshold: 3s)"
+          runbook_url: "https://runbooks.company.com/search-latency"
+
+      - alert: SearchLatencyCritical
+        expr: book:search_latency:p95_5m > 5
+        for: 1m
+        labels:
+          severity: critical
+          team: ml-ops
+          component: search-pipeline
+          priority: critical
+        annotations:
+          summary: "Critical search latency detected"
+          description: "P95 search latency is {{ $value | humanizeDuration }} (critical threshold: 5s)"
+          runbook_url: "https://runbooks.company.com/search-latency-critical"
+
+      - alert: HighErrorRate
+        expr: book:error_rate:5m > 5
+        for: 1m
+        labels:
+          severity: critical
+          team: ml-ops
+          component: application
+          priority: critical
+        annotations:
+          summary: "High error rate detected"
+          description: "Error rate is {{ $value | printf \"%.1f\" }} errors/minute (threshold: 5/min)"
+          runbook_url: "https://runbooks.company.com/high-error-rate"
+
+      - alert: ErrorRatioHigh
+        expr: book:error_ratio:5m > 0.1
+        for: 2m
+        labels:
+          severity: warning
+          team: ml-ops
+          component: application
+          priority: high
+        annotations:
+          summary: "High error ratio detected"
+          description: "{{ $value | humanizePercentage }} of requests are failing (threshold: 10%)"
+
+      - alert: ServiceDown
+        expr: system:service_up == 0
+        for: 30s
+        labels:
+          severity: critical
+          team: platform
+          priority: critical
+        annotations:
+          summary: "Service {{ $labels.job }} is down"
+          description: "Service {{ $labels.job }} on {{ $labels.instance }} has been down for more than 30 seconds"
+          runbook_url: "https://runbooks.company.com/service-down"
+
+  - name: book_recommendation_performance_alerts
+    rules:
+      - alert: ComponentLatencyHigh
+        expr: |
+          (
+            book:component_latency:bm25_p95_5m > 1 or
+            book:component_latency:faiss_p95_5m > 1 or  
+            book:component_latency:rerank_p95_5m > 2
+          )
+        for: 3m
+        labels:
+          severity: warning
+          team: ml-ops
+          component: "{{ $labels.component }}"
+          priority: medium
+        annotations:
+          summary: "ML component latency is high"
+          description: "{{ $labels.component }} component P95 latency is {{ $value | humanizeDuration }}"
+
+      - alert: LowUserSatisfaction
+        expr: book:satisfaction:current < 0.7
+        for: 5m
+        labels:
+          severity: warning
+          team: product
+          component: recommendations
+          priority: high
+        annotations:
+          summary: "User satisfaction is low"
+          description: "User satisfaction rate is {{ $value | humanizePercentage }} (threshold: 70%)"
+          runbook_url: "https://runbooks.company.com/low-satisfaction"
+
+      - alert: VeryLowUserSatisfaction
+        expr: book:satisfaction:current < 0.5
+        for: 2m
+        labels:
+          severity: critical
+          team: product
+          component: recommendations
+          priority: critical
+        annotations:
+          summary: "User satisfaction is critically low"
+          description: "User satisfaction rate is {{ $value | humanizePercentage }} (critical threshold: 50%)"
+
+      - alert: HighMemoryUsage
+        expr: book:memory_usage:gb > 4
+        for: 3m
+        labels:
+          severity: warning
+          team: platform
+          component: system
+          priority: medi
