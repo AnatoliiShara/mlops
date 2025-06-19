@@ -1,0 +1,29 @@
+# Environment variables
+.env
+gcp-key.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+
+# Data files (великі файли)
+data/bookye_books_10000_with_id.csv
+data/*.csv
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
