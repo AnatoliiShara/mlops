@@ -1,0 +1,17 @@
+# Core
+torch>=2.0.0
+transformers>=4.30.0
+sentence-transformers>=2.2.0
+fastapi>=0.100.0
+uvicorn>=0.22.0
+
+# AWS
+boto3>=1.26.0
+sagemaker>=2.175.0
+
+# GCP
+google-cloud-aiplatform>=1.25.0
+
+# Utils
+python-dotenv>=1.0.0
+requests>=2.31.0
